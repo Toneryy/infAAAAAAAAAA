@@ -67,5 +67,8 @@ def get_weather(message):
     else:
         bot.send_message(message.chat.id, 'Название города некорректно')
 
+@bot.message_handler(content_types=['photo', 'audio', 'voice', 'video', 'text'])
+def GetMedia(message):
+    bot.reply_to(message, 'Я не определил вашу команду\nВведите <u>/start</u> , чтобы продолжить', parse_mode='html')
 
 bot.polling(none_stop=True)
